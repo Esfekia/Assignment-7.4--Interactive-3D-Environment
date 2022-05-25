@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightningBehavior : MonoBehaviour
+public class AlienSoundTrigger : MonoBehaviour
 {
-    public AudioSource lightningSound;
-    public AudioSource alienCurse;
+    public AudioSource alienSound;
+    public AudioSource alienKillSound;
     // OnTriggerEnter is called when the Collider other enters the trigger
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {            
-            gameObject.BroadcastMessage("LightningOn");
-            lightningSound.Play();
-            alienCurse.Play();
+        {
+            
+            alienSound.Play();
             
         }
 
@@ -24,8 +23,7 @@ public class LightningBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameObject.BroadcastMessage("LightningOff");
-            lightningSound.Stop();
+            alienKillSound.Play();
         }
     }
 
