@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class LightningBehavior : MonoBehaviour
 {
-
+    public AudioSource lightningSound;
     // OnTriggerEnter is called when the Collider other enters the trigger
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {            
             gameObject.BroadcastMessage("LightningOn");
+            lightningSound.Play();
             
         }
 
@@ -22,6 +23,7 @@ public class LightningBehavior : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameObject.BroadcastMessage("LightningOff");
+            lightningSound.Stop();
         }
     }
 
