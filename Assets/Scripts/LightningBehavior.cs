@@ -9,8 +9,7 @@ public class LightningBehavior : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
-            Debug.Log("Hit");
+        {            
             gameObject.BroadcastMessage("LightningOn");
             
         }
@@ -22,7 +21,7 @@ public class LightningBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameObject.SetActive(false);
+            gameObject.BroadcastMessage("LightningOff");
         }
     }
 
