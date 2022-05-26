@@ -506,6 +506,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quest Item
       objectReference: {fileID: 0}
+    - target: {fileID: 1730582769062350, guid: e661406915866564c95734269648449e, type: 3}
+      propertyPath: m_TagString
+      value: Box
+      objectReference: {fileID: 0}
     - target: {fileID: 4969174171079740, guid: e661406915866564c95734269648449e, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -9280,6 +9284,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &724720945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724720939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c556ee5e06a42654fa8da2e886fbbd86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &724720946
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724720939}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0.000015258789, y: 0.7838169, z: 0}
 --- !u!1 &734074915
 GameObject:
   m_ObjectHideFlags: 0

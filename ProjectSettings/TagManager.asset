@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Energy
+  - Box
   layers:
   - Default
   - TransparentFX
