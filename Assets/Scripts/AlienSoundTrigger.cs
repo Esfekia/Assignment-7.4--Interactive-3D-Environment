@@ -6,6 +6,7 @@ public class AlienSoundTrigger : MonoBehaviour
 {
     public AudioSource alienSound;
     public AudioSource alienKillSound;
+    private GameManager gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     // OnTriggerEnter is called when the Collider other enters the trigger
     private void OnTriggerEnter(Collider other)
     {
@@ -13,6 +14,7 @@ public class AlienSoundTrigger : MonoBehaviour
         {
             
             alienSound.Play();
+            gameManager.obj2done = true;
             
         }
 
