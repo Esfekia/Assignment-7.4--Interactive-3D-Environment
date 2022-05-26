@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShadowHunterBehavior : MonoBehaviour
+public class EscapeRoomBehavior : MonoBehaviour
 {
-    private GameManager gameManager;
-    public AudioSource shadowHunterKill;
-
+    private GameManager gameManager;   
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -16,8 +14,8 @@ public class ShadowHunterBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.obj1done = true;
-            shadowHunterKill.Play();
+            gameManager.obj3done = true;
+            
 
         }
 

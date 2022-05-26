@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         objective1.text = "Objective 1: Check Prison 1.";
-        objective2.text = "Objective 1: Check Prison 2.";
-        objective3.text = "Objective 1: Check Prison 3.";
+        objective2.text = "Objective 2: Check Prison 2.";
+        objective3.text = "Objective 3: Check Prison 3.";
         objective4.text = "Objective 4: Obtain any clues/evidence.";
         gameOver.text = " ";
 
