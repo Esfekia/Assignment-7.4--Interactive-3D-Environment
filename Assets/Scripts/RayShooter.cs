@@ -5,7 +5,8 @@ using UnityEngine;
 public class RayShooter : MonoBehaviour
 {
     private Camera cam;
-
+    public AudioSource weaponFireSound;
+    public ParticleSystem laser;
     void Start()
     {
         cam = GetComponent<Camera>();
@@ -17,7 +18,7 @@ public class RayShooter : MonoBehaviour
         
     void Update()
     {
-        // respond to the left mouse button
+        // respond to the E button press
         if (Input.GetKeyDown(KeyCode.E))
         {
             // use the center of the screen for our ray origin
@@ -37,13 +38,21 @@ public class RayShooter : MonoBehaviour
                 
                 // check for the ReactiveTarget component on the object
                 if (target != null)
-                {
+                {                    
+                    weaponFireSound.Play();
+                    laser.Play();
                     // call a method of the target that reacts to hit
                     target.ReactToHit();
                     
                     // display on console that target was hit
                     //Debug.Log("Target hit!");
-                }                
+                }
+                if (target == null)
+                {
+                    // just play the sound of gun firing.                    
+                    weaponFireSound.Play();
+                    laser.Play();
+                }
             }
         }
     }
