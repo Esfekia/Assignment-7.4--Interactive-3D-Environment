@@ -5,11 +5,13 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public TextMeshProUGUI objective0;
     public TextMeshProUGUI objective1;
     public TextMeshProUGUI objective2;
     public TextMeshProUGUI objective3;
     public TextMeshProUGUI objective4;
     public TextMeshProUGUI gameOver;
+    public bool obj0done = false;
     public bool obj1done = false;
     public bool obj2done = false;
     public bool obj3done = false;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        objective0.text = "Timed Objective: Find and destroy the black hole.";
         objective1.text = "Objective 1: Check Prison 1.";
         objective2.text = "Objective 2: Check Prison 2.";
         objective3.text = "Objective 3: Check Prison 3.";
@@ -30,6 +33,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (obj0done)
+        {
+            objective0.text = "Main Objective: Completed.";
+        }
+        
         if (obj1done)
         {
             objective1.text = "Objective 1: Completed.";
@@ -46,7 +54,7 @@ public class GameManager : MonoBehaviour
         {
             objective4.text = "Objective 4: Mysterius Object Secured.";
         }
-        if (obj1done && obj2done && obj3done && obj4done)
+        if (obj0done && obj1done && obj2done && obj3done && obj4done)
         {
             gameOver.text = "LEVEL COMPLETE";
         }

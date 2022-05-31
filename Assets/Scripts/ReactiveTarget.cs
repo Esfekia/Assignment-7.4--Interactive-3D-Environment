@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class ReactiveTarget : MonoBehaviour
 {
+    private GameManager gameManager;
     [SerializeField] GameObject boom;
     public AudioSource orbDestroySound;
-    
+
+    private void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     public void ReactToHit()
     {
@@ -24,6 +29,7 @@ public class ReactiveTarget : MonoBehaviour
         boom.transform.position = transform.position;
 
         // a script can destroy itself (just as it could a separate object)
-        Destroy(this.gameObject);        
+        Destroy(this.gameObject);
+        gameManager.obj0done = true;
     }
 }
