@@ -43,31 +43,11 @@ public class RayShooter : MonoBehaviour
                     
                     // display on console that target was hit
                     Debug.Log("Target hit!");
-                }
-                else
-                {
-                    // launch a coroutine in response to a hit
-                    StartCoroutine(SphereIndicator(hit.point));
-                }
-                
-
+                }                
             }
         }
     }
-
-    private IEnumerator SphereIndicator(Vector3 pos)
-    {
-        // create a sphere at pos
-        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.position = pos;
-
-        // the yield keyword tells coroutines where to pause
-        yield return new WaitForSeconds(1);
-
-        // destroy the sphere after 1 seconds
-        Destroy(sphere);
-    }
-
+    
     private void OnGUI()
     {
         int size = 12;

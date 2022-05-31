@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ReactiveTarget : MonoBehaviour
 {
-    // first set up the method that is called by the RayShooter script
+    [SerializeField] GameObject boom;
+    public AudioSource orbDestroySound;
+    
 
     public void ReactToHit()
     {
@@ -20,9 +22,10 @@ public class ReactiveTarget : MonoBehaviour
 
     private IEnumerator Die()
     {
-        // topple the enemy, wait 1.5 seconds, and then destroy the enemy.
-        this.transform.Rotate(-75, 0, 0);
-
+        // play orb death sound.
+        orbDestroySound.Play();
+        boom = Instantiate(boom) as GameObject;
+        boom.transform.position = new Vector3(-5.321f, 2.367f, 21.22887f);
         yield return new WaitForSeconds(1.5f);
 
         // a script can destroy itself (just as it could a separate object)
