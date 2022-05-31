@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    // define an enum data structure to associate names with settings
+    // associate names with axes settings using enum
     public enum RotationAxes
     {
         MouseXandY = 0,
@@ -18,19 +18,19 @@ public class MouseLook : MonoBehaviour
     // horizontal look sensitivity
     public float sensitivityHor = 9.0f;
 
-    //vertical look sensitivity and limits
+    // vertical look sensitivity and clamp limits
     public float sensitivityVert = 9.0f;
     public float minimumVert = -45.0f;
     public float maximumVert = 45.0f;
 
-    //declare a private variable for the vertical angle
+    // declare a private variable for the vertical angle
     private float verticalRot = 0;
     
 
     void Start()
     {
         
-        // To ensure player is not affected by other physics simulation of the game
+        // ensure player is not affected by other physics simulation of the game
         Rigidbody body = GetComponent<Rigidbody>();
         if (body != null)
         {
@@ -47,8 +47,7 @@ public class MouseLook : MonoBehaviour
         }
 
         else if (axes == RotationAxes.MouseY)
-        {
-            // vertical rotation here
+        {            
             // increment the vertical angle based on the mouse
             verticalRot -= Input.GetAxis("Mouse Y") * sensitivityVert;
 
@@ -59,7 +58,6 @@ public class MouseLook : MonoBehaviour
             float horizontalRot = transform.localEulerAngles.y;
 
             // create a new vector from the stored rotation values
-
             transform.localEulerAngles = new Vector3(verticalRot, horizontalRot, 0);
         }
 

@@ -18,9 +18,9 @@ public class RayShooter : MonoBehaviour
     void Update()
     {
         // respond to the left mouse button
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            // use the center of the screen which is half its width and height
+            // use the center of the screen for our ray origin
             Vector3 point = new Vector3(cam.pixelWidth/2, cam.pixelHeight/2, 0);
 
             // create the ray at that position by using ScreenPointToRay()
@@ -28,7 +28,7 @@ public class RayShooter : MonoBehaviour
 
             RaycastHit hit;
             
-            // fill a referenced variable with information from the raycast
+            // get information from the raycast
             if (Physics.Raycast(ray, out hit))
             {
                 // retrieve the object the ray hit
@@ -38,11 +38,11 @@ public class RayShooter : MonoBehaviour
                 // check for the ReactiveTarget component on the object
                 if (target != null)
                 {
-                    // call a method of the target
+                    // call a method of the target that reacts to hit
                     target.ReactToHit();
                     
                     // display on console that target was hit
-                    Debug.Log("Target hit!");
+                    //Debug.Log("Target hit!");
                 }                
             }
         }
@@ -54,7 +54,7 @@ public class RayShooter : MonoBehaviour
         float posX = cam.pixelWidth / 2 - size / 4;
         float posY = cam.pixelHeight / 2 - size / 2;
 
-        // display text on screen through GUI.Label()
-        GUI.Label(new Rect(posX, posY, size, size), "*");
+        // display a "crosshair" on screen through GUI.Label()
+        GUI.Label(new Rect(posX, posY, size, size), "+");
     }
 }
